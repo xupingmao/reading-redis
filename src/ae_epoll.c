@@ -120,7 +120,7 @@ static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
             struct epoll_event *e = state->events+j;
 
             /* xpm debug */
-            printf("receive event {ptr=%p, fd=%d}\n", e->data.ptr, e->data.fd);
+            printf("epoll event {ptr=%p, fd=%d}\n", e->data.ptr, e->data.fd);
 
             if (e->events & EPOLLIN) mask |= AE_READABLE;
             if (e->events & EPOLLOUT) mask |= AE_WRITABLE;

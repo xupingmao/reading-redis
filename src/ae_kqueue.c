@@ -123,6 +123,7 @@ static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
         for(j = 0; j < numevents; j++) {
             int mask = 0;
             struct kevent *e = state->events+j;
+            printf("kqueue poll %p\n", e);
 
             if (e->filter == EVFILT_READ) mask |= AE_READABLE;
             if (e->filter == EVFILT_WRITE) mask |= AE_WRITABLE;

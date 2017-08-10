@@ -87,6 +87,7 @@ static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
         for (j = 0; j <= eventLoop->maxfd; j++) {
             int mask = 0;
             aeFileEvent *fe = &eventLoop->events[j];
+            printf("select poll %p\n", fe);
 
             if (fe->mask == AE_NONE) continue;
             if (fe->mask & AE_READABLE && FD_ISSET(j,&state->_rfds))
